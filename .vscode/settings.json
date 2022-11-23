@@ -20,5 +20,8 @@
         "titleBar.inactiveBackground": "#fb76c199",
         "titleBar.inactiveForeground": "#15202b99"
     },
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "cSpell.ignoreWords": [
+        "Todos"
+    ]
 }

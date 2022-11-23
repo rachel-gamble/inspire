@@ -8,6 +8,10 @@ class AppState extends EventEmitter {
 
     background = null
 
+    quote = null
+
+    todos = []
+
 }
 
 export const appState = new Proxy(new AppState(), {
