@@ -1,4 +1,5 @@
-import { appState } from "../appState.js";
+import { appState } from "../AppState.js";
+import { generateId } from "../Utils/generateId.js"
 
 
 export class Todo {
@@ -21,7 +22,22 @@ get Template(){
     `
 }
 
+get Total(){
+    let total = 0
+    let completedTodos = appState.todos.filter(t => t.completed == true)
+    total = completedTodos.length
+    return total
+}
+
+get CompletedTemplate(){
+    return `
+    ${this.Total}/${appState.todos.length} completed
+    `
+}
 
 
 }
+
+
+
 

@@ -1,8 +1,9 @@
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
-import { loadState } from "./Utils/Store.js"
 
 class AppState extends EventEmitter {
+
+  todos = []
   
     /** @type {import('./Models/Background').Background} */
 
@@ -10,7 +11,6 @@ class AppState extends EventEmitter {
 
     quote = null
 
-    todos = []
 
 }
 
