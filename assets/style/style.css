@@ -1,1 +1,20 @@
 /* BASIC STYLES HERE */
+body {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.clock {
+font-family: Arial, Helvetica, sans-serif;
+color: white;
+font-weight: bold;
+position:absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+font-size: 50px;
+text-shadow: 2px;
+padding: 2px;
+}
