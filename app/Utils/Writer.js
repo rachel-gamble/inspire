@@ -1,6 +1,6 @@
 import { Pop } from "./Pop.js"
 
-function getElem(id) {
+export function getElem(id) {
   try {
     const elem = document.getElementById(id)
     if (!elem) {

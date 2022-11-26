@@ -3,7 +3,7 @@ import { quoteService } from "../Services/QuoteService.js";
 
 
 function _drawQuote() {
-    // console.log('quote')
+    console.log('quote')
     document.getElementById('quote').innerHTML = appState.quote.Template
 }
 
