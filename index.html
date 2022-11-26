@@ -71,11 +71,21 @@
               <button type="submit" class="btn btn-white mt-1"><i
                   class="mdi mdi-plus-circle-outline text-white"></i></button>
               <div class="fs-6" id="todos">
-                <!-- TODOS HERE --> Loading...
+
+
+                <!-- TODOS HERE -->
               </div>
               <div id="completed"></div>
           </form>
         </div>
+
+
+        <button class="btn text-card bg-dark text-light px-4 py-3" data-bs-toggle="offcanvas" data-bs-target="#todo-offcanvas">
+          <div class="d-flex flex-column">
+              <span>To Do List</span>
+              <span><span id="remaining-todos-button"></span> undone</span>
+          </div>
+      </button>
 
         <!--end -->
 
@@ -95,13 +105,39 @@
         title="Click for new quotes"><span>"${this.content}"</span><br><span class="on-hover fs-6">- ${this.author}</span>
       </div> -->
 
+
+
+
+      <div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="todo-offcanvas">
+        <div class="offcanvas-header">
+          <h4>To Do List</h4>
+          <h6><span id="remaining-todos-offcanvas"></span> remaining</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <form onsubmit="app.todosController.createTodo()">
+            <label class="visually-hidden" for="name">New To Do Name</label>
+            <div class="input-group px-2">
+                <input type="text" class="form-control bg-light" name="description" id="description" placeholder="New Todo" value="" required>
+                <button type="submit" class="input-group-text">Add To Do</button>
+            </div>
+        </form>
+        <div class="offcanvas-body">
+            <div id="todo-list">
+                                    
+            </div>
+        </div>
+    </div>
+
+
+
+
     <!-- off canvas-->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+    <!-- <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body">
+      <div class="offcanvas-body"> -->
 
         <!-- TODO TEMPLATE OFF CANVAS-->
         <!-- <form class="p-1" onsubmit="app.todosController.addTodo()">

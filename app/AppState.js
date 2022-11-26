@@ -3,7 +3,7 @@ import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
 
-  todos = []
+  todos = null
   
     /** @type {import('./Models/Background').Background} */
 

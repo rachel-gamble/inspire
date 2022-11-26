@@ -1,44 +1,24 @@
-import { appState } from "../AppState.js";
-import { generateId } from "../Utils/generateId.js"
-
-
 export class Todo {
     constructor(data) {
-        this.id = data.id
-        this.description = data.description
-        this.user = data.user
-        this.completed = data.completed || false
+        this.id = data.id;
+        this.completed = data.completed || false;
+        this.description = data.description;
     }
 
-    get TodoTemplate() {
+    get Template() {
+        const iconClass = this.completed ? "mdi mdi-24px mdi-checkbox-marked-circle-outline" : "mdi mdi-24px mdi-circle-outline";
+        const textStyle = this.completed ? "text-decoration: line-through; " : "";
 
-        // FIXME problem is either here or in the todo controller constructor 
-
-        return /*html*/ ` 
-        <div class="d-flex justify-content-between p-1 border-bottom text-light rounded text mt-2">
-    <input ${this.completed == true ? 'checked' : ''} onclick="app.todosController.trackTodo('${this.id}')" class='form-check-input me-1 action' name="done" type ='checkbox' id="done" value="yes" title="click to change status">
-    <li>${this.description}
-    </li>
-    <i class="mdi mdi-alpha-x-circle-outline selectable pointer text-light on-hover rounded" title="Delete" onclick="app.todosController.deleteTodo('${this.id}')" minlength="3" maxlength="50">
-    </i>
-    </div>
-    `
-    }
-
-    get Total() {
-        let total = 0
-        let completedTodos = appState.todos.filter(t => t.completed == true)
-        total = completedTodos.length
-        return total
-    }
-
-    get CompletedTemplate() {
         return `
-    ${this.Total}/${appState.todos.length} completed 
-    `
+        <div class="d-flex align-items-center">
+            <div onclick="app.todosController.toggleTodo('${this.id}')" class="d-flex align-items-center flex-grow-1 selectable no-select">
+                <i class="${iconClass} me-2 text-light"></i>
+                <span style="${textStyle}">${this.description}</span>
+            </div>
+            <i class="mdi mdi-24px action mdi-delete-forever on-hover text-danger ms-2" onclick="app.todosController.deleteTodo('${this.id}')"></i>
+        </div>
+        `
     }
-
-
 }
 
 

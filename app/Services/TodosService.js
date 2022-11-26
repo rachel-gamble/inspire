@@ -1,46 +1,35 @@
 import { appState } from "../AppState.js";
 import { Todo } from "../Models/Todo.js";
-import { sandboxApi } from "./AxiosService.js"
-import { Pop } from "../Utils/Pop.js"
-
+import { sandboxApi } from "./AxiosService.js";
 
 class TodosService {
-
-    async trackTodo(id) {
-        let foundTodo = appState.todos.find(t => t.id == id)
-        foundTodo.completed = !foundTodo.completed
-        const res = await sandboxApi.put('sautrah/todos/' + foundTodo.id, foundTodo)
-        const editedTodo = appState.todos.findIndex(t => t.id == res.data.id)
-        const newTodo = new Todo(res.data)
-        appState.todos.splice(editedTodo, 1, newTodo)
-        appState.todos = appState.todos
+    async getAllTodos() {
+        const res = await sandboxApi.get("sautrah/todos");
+        appState.todos = res.data.map(todo => new Todo(todo));
     }
 
-    async addTodo(todoData) {
-        const res = await sandboxApi.post('sautrah/todos', todoData)
+    async createTodo(newTodoData) {
+        // const newTodo = new Todo(newTodoData);
+        const res = await sandboxApi.post("sautrah/todos", newTodoData);
         appState.todos = [...appState.todos, new Todo(res.data)]
     }
 
-    async getTodos() {
-        try {
-            const res = await sandboxApi.get('sautrah/todos')
-            appState.todos = res.data.map(t => new Todo(t))
-            appState.todos = appState.todos
-            console.log("The appState", appState.todos);
-        } catch (error) {
-            console.error(error)
-            Pop.toast(error.message, 'error')
+    async toggleTodo(todoId) {
+        const foundTodo = appState.todos.find(todo => todo.id === todoId);
+        if (foundTodo) {
+            foundTodo.completed = !foundTodo.completed;
         }
+
+        const res = await sandboxApi.put("sautrah/todos/" + foundTodo.id, foundTodo);
+        const index = appState.todos.findIndex(todo => todo.id === res.data.id);
+        appState.todos.splice(index, 1, new Todo(res.data));
+        appState.todos = appState.todos;
     }
 
-
-    async deleteTodo(id) {
-        await sandboxApi.delete('sautrah/todos/', + id)
-        appState.todos = appState.todos.filter(t => t.id !== id)
+    async deleteTodo(todoId) {
+        const res = await sandboxApi.delete("sautrah/todos/" + todoId);
+        appState.todos = appState.todos.filter(todo => todo.id != todoId);
     }
-
-
 }
 
-
-export const todosService = new TodosService()
+export const todosService = new TodosService();
