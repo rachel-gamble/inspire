@@ -22,13 +22,16 @@
 
       <!-- TOP ROW -->
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 d-flex justify-content-between">
           <!-- PHOTOGRAPHER HERE -->
-          <div class="col-lg-4 text-start text text-light p-4 m-1 rounded opacity-75 fw-bold">
+          <div class="col-lg-8 col-md-4 text-start text-light p-4 m-1 rounded opacity-75 fw-bold">
             <h6>Image by <span id="artist"></span></h6>
           </div>
           <!-- WEATHER HERE -->
-          <div class="col-lg-4 text-start text text-light p-4 m-1 rounded opacity-75 fw-bold"><span id="weather"></span>
+          <div class="col-lg-4 text-end text-light p-4 m-1 rounded opacity-75 fw-bold justify-content-end">
+            <div class="weather pointer poppin col-9">
+              <span id="weather" onclick="app.weatherController.toggleTemp()"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -38,18 +41,26 @@
       <div class="row">
         <div class="col-12 text-center">
           <div class="p-4">
-            <h1><span id="clock" onclick="app.clockController.switchFormat()"></span></h1>
+            <h1><span id="clock" onclick="app.clockController.switchFormat()" class="poppin clock"></span></h1>
           </div>
         </div>
-      </div>
+      </div><br><br><br>
 
 
       <!-- BOTTOM // QUOTE ROW -->
       <div class="row">
-        <div class="row"> <div class="col-12"></div></div>
-        <div class="row"> <div class="col-12"></div></div>
-        <div class="row"> <div class="col-12"></div></div>
-        <div class="row"> <div class="col-12"></div></div>
+        <div class="row">
+          <div class="col-12"></div>
+        </div>
+        <div class="row">
+          <div class="col-12"></div>
+        </div>
+        <div class="row">
+          <div class="col-12"></div>
+        </div>
+        <div class="row">
+          <div class="col-12"></div>
+        </div>
         <div class="col-12 text-center p-4">
           <span id="quote">
             <!-- QUOTE HERE -->
@@ -86,12 +97,12 @@
         </div>
 
 
-        <button class="btn text-card bg-dark text-light px-4 py-3" data-bs-toggle="offcanvas" data-bs-target="#todo-offcanvas">
+        <button class="btn text-card text-light px-4 py-3" data-bs-toggle="offcanvas" data-bs-target="#todo-offcanvas">
           <div class="d-flex flex-column">
-              <span>To Do List</span>
-              <span><span id="remaining-todos-button"></span> undone</span>
+            <span>To Do List</span>
+            <span><span id="remaining-todos-button"></span> undone</span>
           </div>
-      </button>
+        </button>
 
         <!--end -->
 
@@ -114,24 +125,25 @@
 
 
 
-      <div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="todo-offcanvas">
-        <div class="offcanvas-header">
-          <h4>To Do List</h4>
-          <h6><span id="remaining-todos-offcanvas"></span> remaining</h5>
+    <div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="todo-offcanvas">
+      <div class="offcanvas-header">
+        <h4>To Do List</h4>
+        <h6><span id="remaining-todos-offcanvas"></span> remaining</h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <form onsubmit="app.todosController.createTodo()">
+        <label class="visually-hidden" for="name">New To Do Name</label>
+        <div class="input-group px-2">
+          <input type="text" class="form-control bg-light" name="description" id="description" placeholder="New Todo"
+            value="" required>
+          <button type="submit" class="input-group-text">Add To Do</button>
         </div>
-        <form onsubmit="app.todosController.createTodo()">
-            <label class="visually-hidden" for="name">New To Do Name</label>
-            <div class="input-group px-2">
-                <input type="text" class="form-control bg-light" name="description" id="description" placeholder="New Todo" value="" required>
-                <button type="submit" class="input-group-text">Add To Do</button>
-            </div>
-        </form>
-        <div class="offcanvas-body">
-            <div id="todo-list">
-                                    
-            </div>
+      </form>
+      <div class="offcanvas-body">
+        <div id="todo-list">
+
         </div>
+      </div>
     </div>
 
 
@@ -145,8 +157,8 @@
       </div>
       <div class="offcanvas-body"> -->
 
-        <!-- TODO TEMPLATE OFF CANVAS-->
-        <!-- <form class="p-1" onsubmit="app.todosController.addTodo()">
+    <!-- TODO TEMPLATE OFF CANVAS-->
+    <!-- <form class="p-1" onsubmit="app.todosController.addTodo()">
           <div class="d-flex justify-content-between text-light border-bottom">
             <h4>Today's Todos:</h4>
             <div id="fraction"></div>
@@ -161,7 +173,7 @@
         </form> -->
 
 
-      </div>
+    </div>
     </div>
 
   </footer>

@@ -7,15 +7,20 @@ body {
 }
 
 .clock {
-font-family: Arial, Helvetica, sans-serif;
-color: white;
-font-weight: bold;
-position:absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-font-size: 50px;
-text-shadow: 2px;
-padding: 2px;
-box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 65px;
+    text-shadow: 2px;
+    padding: 2px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.weather {
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.208);
 }

@@ -4,18 +4,19 @@ import { isValidProp } from "./Utils/isValidProp.js"
 class AppState extends EventEmitter {
 
   todos = null
-  
-    /** @type {import('./Models/Background').Background} */
 
-    background = null
+  /** @type {import('./Models/Background').Background} */
 
-    quote = null
+  background = null
 
-    weather = []
+  quote = null
 
-    // fahrenheit = true
-    time = { hour: null, minute: null }
-    brokenTime = false
+  // fahrenheit = true
+  time = { hour: null, minute: null }
+  brokenTime = false
+
+  weather = []
+  fahrenheit = true
 
 }
 
