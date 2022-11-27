@@ -11,6 +11,11 @@ class AppState extends EventEmitter {
 
     quote = null
 
+    weather = []
+
+    // fahrenheit = true
+    time = { hour: null, minute: null }
+    brokenTime = false
 
 }
 
