@@ -4,13 +4,13 @@ export class Weather {
         this.weather = data.weather[0].description
         this.name = data.name
         this.icon = data.weather[0].icon
-        this.bool = true
+        // this.bool = true
 
     }
 
-    get FahrenheitTemplate() {
-        return `<div onclick="app.weatherController.toggleTemp()" class="d-flex" flex-column p-2 rounded selectable fw-bold" title="click to toggle">
-        <div class="fs-2 border-bottom"<img src="https://openweathermap.org/img/wn/${this.icon}@2x.png"/>${this.main} °F </div>
+    get Template() {
+        return `<div onclick="app.weatherController.toggleTemp()" class="d-flex flex-column p-2 rounded selectable pointer fw-bold" title="click to toggle">
+        <div class="fs-2"><img src="https://openweathermap.org/img/wn/${this.icon}@2x.png"/>${this.main} °F </div>
         <div class="fs-5">${this.weather}</div>
         <div class="fs-5>    ${this.name}</div>
         </div>

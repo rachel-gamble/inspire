@@ -10,6 +10,9 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.0.96/css/materialdesignicons.min.css"
     integrity="sha512-fXnjLwoVZ01NUqS/7G5kAnhXNXat6v7e3M9PhoMHOTARUMCaf5qNO84r5x9AFf5HDzm3rEZD8sb/n6dZ19SzFA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
   <title>inspire-2</title>
@@ -25,12 +28,13 @@
         <div class="col-12 d-flex justify-content-between">
           <!-- PHOTOGRAPHER HERE -->
           <div class="col-lg-8 col-md-4 text-start text-light p-4 m-1 rounded opacity-75 fw-bold">
-            <h6>Image by <span id="artist"></span></h6>
+            <h5>Image by <span id="artist"></span></h5>
           </div>
           <!-- WEATHER HERE -->
-          <div class="col-lg-4 text-end text-light p-4 m-1 rounded opacity-75 fw-bold justify-content-end">
-            <div class="weather pointer poppin col-9">
-              <span id="weather" onclick="app.weatherController.toggleTemp()"></span>
+          <div class="col-lg-3 right p-4 m-1 rounded justify-content-end">
+            <div class="weather pointer poppin col-9 text-end">
+              <span id="weather" onclick="app.weatherController.toggleTemp()"
+                class="text-end selectable pointer"></span>
             </div>
           </div>
         </div>
@@ -44,25 +48,13 @@
             <h1><span id="clock" onclick="app.clockController.switchFormat()" class="poppin clock"></span></h1>
           </div>
         </div>
-      </div><br><br><br>
+      </div><br><br><br><br><br><br><br><br>
 
 
       <!-- BOTTOM // QUOTE ROW -->
       <div class="row">
-        <!-- <div class="row">
-          <div class="col-12"></div>
-        </div>
-        <div class="row">
-          <div class="col-12"></div>
-        </div>
-        <div class="row">
-          <div class="col-12"></div>
-        </div>
-        <div class="row">
-          <div class="col-12"></div>
-        </div> -->
-        <div class="col-12 text-center p-4 m-4 pt-4">
-          <span id="quote">
+        <div class="col-12 text-center p-2 m-2 pt-2 fs-2">
+          <span id="quote" class="quote">
             <!-- QUOTE HERE -->
           </span>
         </div>
@@ -70,7 +62,6 @@
 
       <div class="row">
         <div class="col-lg-12"></div>
-        <div class="col-lg-9"></div>
 
 
         <div class="col-lg-3 justify-content-end">
@@ -93,7 +84,7 @@
 
 
       <!-- TODOS HERE -->
-      <div id="completed"></div>
+      <div id="completed" class="right"></div>
       </form>
       <div class="row">
         <div class="col-lg-12">
@@ -105,9 +96,9 @@
           </div>
         </div>
         <!--TODO BUTTON-->
-        <div class="float-end m-2 p-2 text-center">
+        <div class="float-end m-2 p-4 right">
           <button class="btn text-card text-light" data-bs-toggle="offcanvas" data-bs-target="#todo-offcanvas">
-            <div class="d-flex flex-column todo">
+            <div class="d-flex flex-column todo p-2">
               <span>To Do List</span>
               <span><span id="remaining-todos-button"></span> undone</span>
             </div>

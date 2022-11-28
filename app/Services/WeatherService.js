@@ -11,12 +11,7 @@ class WeatherService {
 
     }
     toggleTemp() {
-        let weather = appState.weather
-        // if(weather.bool == true){
-        //     appState.fahrenheit = !appState.fahrenheit
-        // }else {
-        //     appState.celsius = weather.CelsiusTemplate
-        // }
+        // let weather = appState.weather
         appState.fahrenheit = !appState.fahrenheit
         console.log('toggle weather type', appState.fahrenheit);
     }

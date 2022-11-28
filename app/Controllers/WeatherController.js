@@ -5,14 +5,11 @@ import { Weather } from "../Models/Weather.js";
 
 function _drawWeather() {
     let template = ''
+    // const weatherTemplate = appState.fahrenheit ? appState.weather.Template : appState.weather.CelsiusTemplate;
     const weatherArray = appState.weather
-    weatherArray.forEach(w => template += appState.fahrenheit ? w.FahrenheitTemplate : w.CelsiusTemplate)
-    let weather = appState.weather
-    // if (weather.bool == true) {
-    //     w.FahrenheitTemplate
-    // } else {
-    //     w.CelsiusTemplate
-    // }
+    weatherArray.forEach(w => {template += appState.fahrenheit ? w.Template : w.CelsiusTemplate})
+    
+    // let weather = appState.weather
     document.getElementById('weather').innerHTML = template
 }
 
