@@ -21,7 +21,7 @@ body {
     text-shadow: 2px;
     padding: 2px;
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     /* margin-top: 5px; */
 }
 
@@ -46,7 +46,6 @@ body {
 .todo {
     background-color: rgba(0, 0, 0, 0.404);
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
-    margin-top: -5vh;
 }
 
 .todo:hover {
@@ -70,12 +69,16 @@ footer {
 
 .quote {
     font-weight: bold;
-    padding-top: 10px;
-    margin: 20px;
-    margin-bottom: -10px;
+    margin-top: 30px;
+    margin-bottom: -20px;
+    padding-top: 20px;
 }
 
 .quote:hover {
     background-color: rgba(0, 0, 0, 0.547);
 
+}
+
+.todo-button {
+    margin-top: -15px;
 }

@@ -53,7 +53,7 @@
 
       <!-- BOTTOM // QUOTE ROW -->
       <div class="row">
-        <div class="col-12 text-center fs-2">
+        <div class="col-12 text-center fs-2 quote">
           <span id="quote" class="quote">
             <!-- QUOTE HERE -->
           </span>
@@ -95,11 +95,13 @@
           <div class="col-lg-3 justify-content-end">
           </div>
         </div>
+
+
         <!--TODO BUTTON-->
-        <div class="float-end m-2 p-4 right">
+        <div class="float-end m-2 p-4 right todo-button">
           <button class="btn text-card text-light" data-bs-toggle="offcanvas" data-bs-target="#todo-offcanvas">
             <div class="d-flex flex-column todo p-2">
-              <span>To Do List</span>
+              <span><i class="mdi mdi-sprout"></i> To Do List</span>
               <span><span id="remaining-todos-button"></span> undone</span>
             </div>
           </button>
@@ -129,7 +131,7 @@
 
     <div class="offcanvas offcanvas-end text-light" tabindex="-1" id="todo-offcanvas">
       <div class="offcanvas-header">
-        <h4>To Do:</h4>
+        <h4><i class="mdi mdi-sprout"></i> To Do:</h4>
         <h6><span id="remaining-todos-offcanvas"></span> remaining</h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
