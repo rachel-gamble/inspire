@@ -22,5 +22,25 @@ body {
 
 .weather {
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
-    background-color: rgba(0, 0, 0, 0.208);
+    /* background-color: rgba(0, 0, 0, 0.208); */
+    opacity: .7;
+}
+
+.weather:hover {
+    opacity: 1;
+}
+
+.todo{
+    background-color: rgba(0, 0, 0, 0.404);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.todo:hover {
+    background-color: rgba(0, 0, 0, 0.769);
+    opacity: .9;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.offcanvas{
+    background-color: rgba(0, 0, 0, 0.547);
 }

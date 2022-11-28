@@ -7,6 +7,12 @@ function _drawWeather() {
     let template = ''
     const weatherArray = appState.weather
     weatherArray.forEach(w => template += appState.fahrenheit ? w.FahrenheitTemplate : w.CelsiusTemplate)
+    let weather = appState.weather
+    // if (weather.bool == true) {
+    //     w.FahrenheitTemplate
+    // } else {
+    //     w.CelsiusTemplate
+    // }
     document.getElementById('weather').innerHTML = template
 }
 

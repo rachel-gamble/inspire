@@ -17,6 +17,7 @@ class AppState extends EventEmitter {
 
   weather = []
   fahrenheit = true
+  // celsius = true
 
 }
 

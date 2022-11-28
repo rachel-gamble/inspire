@@ -4,6 +4,7 @@ export class Weather {
         this.weather = data.weather[0].description
         this.name = data.name
         this.icon = data.weather[0].icon
+        this.bool = true
 
     }
 
