@@ -1,33 +1,31 @@
 import { appState } from "../AppState.js";
 import { weatherService } from "../Services/WeatherService.js";
-import { Weather } from "../Models/Weather.js";
 
-
-function _drawWeather() {
-    let template = ''
-    // const weatherTemplate = appState.fahrenheit ? appState.weather.Template : appState.weather.CelsiusTemplate;
-    const weatherArray = appState.weather
-    weatherArray.forEach(w => {template += appState.fahrenheit ? w.Template : w.CelsiusTemplate})
-    
-    // let weather = appState.weather
-    document.getElementById('weather').innerHTML = template
+function _drawWeather()
+{
+    const weatherTemplate = appState.celsius ? appState.weather.CelsiusTemplate : appState.weather.FahrenheitTemplate;
+    document.getElementById("weather").innerHTML = weatherTemplate;
 }
 
-export class WeatherController {
-    constructor() {
-        this.getWeather()
-        appState.on('weather', _drawWeather)
-        appState.on('fahrenheit', _drawWeather)
-        _drawWeather()
+export class WeatherController
+{
+    constructor()
+    {
+        appState.on("weather", _drawWeather);
+        appState.on("celsius", _drawWeather);
+        weatherService.getWeather();
     }
-    async getWeather() {
-        try {
-            await weatherService.getWeather()
-        } catch (error) {
-            window.Error('something went wrong with the weather')
+
+    toggleTemp()
+    {
+        try
+        {
+            weatherService.toggleTemp();
         }
-    }
-    toggleTemp() {
-        weatherService.toggleTemp()
+        catch(error)
+        {
+            console.error("[WEATHER UNIT TOGGLE ERROR]", error.message);
+            Pop.toast(error.message, "error");
+        }
     }
 }
